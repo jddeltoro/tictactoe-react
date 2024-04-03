@@ -1,6 +1,8 @@
 import "./App.css";
+import { useState } from "react";
 
 function Board() {
+  const [squares, setSquares] = useState(Array(9).fill(null));
   return (
     <>
       <div className="board-row">
@@ -22,9 +24,10 @@ function Board() {
   );
 }
 
-function Square({value}) {
+function Square() {
+  const [value, setValue] = useState(null);
   function handleClick() {
-    alert('click');
+    setValue("X");
   }
   return <button className="square" onClick={handleClick}>{value}</button>;
 }
